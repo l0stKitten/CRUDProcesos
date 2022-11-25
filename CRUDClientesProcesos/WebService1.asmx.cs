@@ -56,5 +56,61 @@ namespace CRUDClientesProcesos
             Procedimientos pc = new Procedimientos();
             return pc.Ver_Productos(conn.GetConexion());
         }
+
+        [WebMethod]
+        public string Crear_ADMIN_WS(string nom, string ape, string fec_nac,
+                                string carg, string uss, string pass)
+        {
+            Conexion conn = new Conexion();
+            conn.EstablecerConnection();
+            Procedimientos pc = new Procedimientos();
+            return pc.Nuevo_Admin(conn.GetConexion(), nom, ape, fec_nac, carg, uss, pass);
+        }
+
+        [WebMethod]
+        public string Actualizar_ADMIN_DP_WS(int id_ad, string nom, string ape, string fec_nac,
+                                string carg)
+        {
+            Conexion conn = new Conexion();
+            conn.EstablecerConnection();
+            Procedimientos pc = new Procedimientos();
+            return pc.Actualizar_Admin_DP(conn.GetConexion(), id_ad, nom, ape, fec_nac, carg);
+        }
+
+        [WebMethod]
+        public string Actualizar_ADMIN_US_WS(int id_ad, string uss, string pass)
+        {
+            Conexion conn = new Conexion();
+            conn.EstablecerConnection();
+            Procedimientos pc = new Procedimientos();
+            return pc.Actualizar_Admin_user(conn.GetConexion(), id_ad, uss, pass);
+        }
+
+        [WebMethod]
+        public string Eliminar_ADMIN_WS(int id)
+        {
+            Conexion conn = new Conexion();
+            conn.EstablecerConnection();
+            Procedimientos pc = new Procedimientos();
+            return pc.Eliminar_ADMIN(conn.GetConexion(), id);
+        }
+
+        [WebMethod]
+        public string Ver_ADMIN_WS()
+        {
+            Conexion conn = new Conexion();
+            conn.EstablecerConnection();
+            Procedimientos pc = new Procedimientos();
+            return pc.Ver_Admins(conn.GetConexion());
+        }
+
+        [WebMethod]
+        public string LG_ADMIN_WS(string usuario, string contrasena)
+        {
+            Conexion conn = new Conexion();
+            conn.EstablecerConnection();
+            Procedimientos pc = new Procedimientos();
+            return pc.Admin_Login(conn.GetConexion(), usuario, contrasena);
+        }
     }
 }
